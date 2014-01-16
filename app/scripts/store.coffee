@@ -1,0 +1,1 @@
+EmberMail.ApplicationAdapter = DS.FixtureAdapter
