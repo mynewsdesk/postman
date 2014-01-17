@@ -17,12 +17,20 @@
             <div>
                 <div class="col-md-3">
                     <div class="well sidebar-nav">
-                        <strong>Colors</strong>
-                        <ul class="list-group">
-                        {{#each item in controller}}
-                            <li class="list-group-item">{{item}}</li>
-                        {{/each}}
-                        </ul>
+                        <strong>Number of events:</strong>
+                        {{ model }}
+                        <br>
+                        {{!-- {{#link-to 'event' 'jonas.forsberg@mynewsdesk.com'}}Sort{{/link-to}} --}}
+
+                        address:
+                        {{input value=email}}
+
+                        category:
+                        {{view Ember.Select content=categories selection=selected_category }}
+
+                        <button {{action 'search'}}>Search</button>
+
+
                     </div>
                 </div>
                 <div class="col-md-9">
