@@ -1,1 +1,1 @@
-EmberMail.ApplicationAdapter = DS.FixtureAdapter
+# EmberMail.ApplicationAdapter = DS.FixtureAdapter
