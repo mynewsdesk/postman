@@ -2,6 +2,7 @@ EmberMail.Email = Ember.Object.extend
   email: null
   category: null
   number_of_events: null
+  loading: true
 
   init: ->
     filters = [
@@ -24,3 +25,4 @@ EmberMail.Email = Ember.Object.extend
       filters: filters
     ).then (data)=>
       @set 'number_of_events', data
+      @set 'loading', false

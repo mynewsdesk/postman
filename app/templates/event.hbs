@@ -1,3 +1,9 @@
 <h1>{{ email }}</h1>
-<span>{{ number_of_events }}</span> events!
+{{#if loading}}
+   loading...
+{{else}}
+  <span>{{ number_of_events }}</span> events!
+{{/if}}
+
+
 {{outlet}}
