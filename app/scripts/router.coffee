@@ -1,7 +1,6 @@
 EmberMail.Router.map( ->
-
-  @resource('events', ->
-    @resource('event', path: '/:email/:category', ->
+  @resource('email', path: '/:email/:category', ->
+    @resource('email.events', path: '/events', ->
     )
   )
 )

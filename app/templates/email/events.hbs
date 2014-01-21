@@ -1,0 +1,21 @@
+hello
+
+<table>
+  <tr>
+    <th>type</th>
+    <th>category</th>
+    <th>ip</th>
+    <th>timestamp</th>
+    <th>useragent</th>
+  </tr>
+  {{#each event in controller}}
+    {{log event}}
+    <tr>
+      <td>{{event.event}}</td>
+      <td>{{event.category}}</td>
+      <td>{{event.ip}}</td>
+      <td>{{event.timestamp}}</td>
+      <td>{{event.useragent}}</td>
+    </tr>
+  {{/each}}
+</table>

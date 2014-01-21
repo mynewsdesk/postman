@@ -11,3 +11,16 @@ EmberMail.KeenFetcher =
           console.log(response.result)
           resolve response.result
     )
+  data: (options) ->
+    url = window.Keen.client.keenUrl +
+            "/3.0/projects/" +
+            window.Keen.client.projectId +
+            "/queries/extraction"
+    options.api_key = window.Keen.client.readKey
+    options.event_collection = "Sendgrid Email Events"
+    console.log options.filters
+    options.filters = JSON.stringify(options.filters)
+    options.latest = 30
+    console.log options.filters
+
+    new Ember.$.getJSON(url, options)

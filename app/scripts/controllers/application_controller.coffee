@@ -47,4 +47,4 @@ EmberMail.ApplicationController = Ember.ObjectController.extend
   ]
   actions:
     search: ->
-      @transitionToRoute 'event.index', category: @get('selected_category'), email: @get('email')
+      @transitionToRoute 'email.events', category: @get('selected_category'), email: @get('email')
