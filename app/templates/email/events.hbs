@@ -1,5 +1,3 @@
-hello
-
 <table>
   <tr>
     <th>type</th>
@@ -14,7 +12,7 @@ hello
       <td>{{event.event}}</td>
       <td>{{event.category}}</td>
       <td>{{event.ip}}</td>
-      <td>{{event.timestamp}}</td>
+      <td>{{prettyDate event.timestamp}}</td>
       <td>{{event.useragent}}</td>
     </tr>
   {{/each}}

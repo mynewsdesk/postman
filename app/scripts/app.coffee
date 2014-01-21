@@ -10,3 +10,7 @@ require 'scripts/store'
 require 'scripts/routes/*'
 require 'scripts/views/*'
 require 'scripts/router'
+
+Ember.Handlebars.registerBoundHelper 'prettyDate', (timestamp) ->
+  moment.unix(timestamp).format('LLL')
+
