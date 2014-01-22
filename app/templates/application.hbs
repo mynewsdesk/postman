@@ -1,45 +1,22 @@
-<div>
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">EmberMail</a>
-        </div>
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-        </div>
-    </nav>
-    <div class="container" id="main">
-        <div class="row">
-            <div>
-                <div class="col-md-12">
-                    <div class="well sidebar-nav">
-                        <strong>Number of events:</strong>
-                        {{ model }}
-                        <br>
+<header>
+    <h1>EmberMail</a>
+</header>
 
-                        address:
-                        {{input value=email}}
+<div class="pure-g">
+    <div class="pure-u-1">
+        <strong>Number of events:</strong>
+        {{ model }}
+        <br>
+        <form class="pure-form">
+            {{input value=email placeholder='email address'}}
 
-                        category:
-                        {{view Ember.Select content=categories selection=selected_category }}
+            {{view Ember.Select content=categories selection=selected_category }}
 
-                        <button {{action 'search'}}>Search</button>
-
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div>
-                <div class="col-md-12">
-                    {{outlet}}
-                </div>
-            </div>
-        </div>
+            <button {{action 'search'}} class="pure-button">Search</button>
+        </form>
+    </div>
+    <div class="pure-u-1">
+        {{outlet}}
     </div>
 </div>
+

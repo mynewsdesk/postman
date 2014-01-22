@@ -1,3 +1,4 @@
 EmberMail.ApplicationRoute = Ember.Route.extend
-  model: ->
-    EmberMail.KeenFetcher.metric(analysisType: "count")
+  setupController: (controller)->
+    EmberMail.KeenFetcher.metric(analysisType: "count").then (data)->
+      controller.set 'model', data
