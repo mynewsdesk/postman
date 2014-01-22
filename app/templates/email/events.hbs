@@ -1,29 +1,42 @@
-<table class="pure-table pure-table-horizontal">
-  <tr>
-    <th>type</th>
-    <th>category</th>
-    <th>ip</th>
-    <th>time</th>
-    <th>material</th>
-    <th>source</th>
-  </tr>
-  {{#each event in controller}}
-    {{log event}}
+{{#if loading }}
+
+  <div class="spinner">
+    <div class="rect1"></div>
+    <div class="rect2"></div>
+    <div class="rect3"></div>
+    <div class="rect4"></div>
+    <div class="rect5"></div>
+  </div>
+
+{{else}}
+
+  <table class="pure-table pure-table-horizontal">
     <tr>
-      <td>{{event.event}}</td>
-      <td>{{event.category}}</td>
-      <td>{{event.ip}}</td>
-      <td>{{prettyDate event.timestamp}}</td>
-      <td>
-        {{#if event.material_url}}
-          <a {{bind-attr href=event.material_url}}>{{event.material_type}}#{{event.material_id}}</a>
-        {{/if}}
-      </td>
-      <td>
-        {{#if event.source_url}}
-          <a {{bind-attr href=event.source_url}}>{{event.source_id}}</a>
-        {{/if}}
-      </td>
+      <th>type</th>
+      <th>category</th>
+      <th>ip</th>
+      <th>time</th>
+      <th>material</th>
+      <th>source</th>
     </tr>
-  {{/each}}
-</table>
+    {{#each event in controller}}
+      {{log event}}
+      <tr>
+        <td>{{event.event}}</td>
+        <td>{{event.category}}</td>
+        <td>{{event.ip}}</td>
+        <td>{{prettyDate event.timestamp}}</td>
+        <td>
+          {{#if event.material_url}}
+            <a {{bind-attr href=event.material_url}}>{{event.material_type}}#{{event.material_id}}</a>
+          {{/if}}
+        </td>
+        <td>
+          {{#if event.source_url}}
+            <a {{bind-attr href=event.source_url}}>{{event.source_id}}</a>
+          {{/if}}
+        </td>
+      </tr>
+    {{/each}}
+  </table>
+{{/if}}

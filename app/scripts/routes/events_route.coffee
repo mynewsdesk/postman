@@ -1,6 +1,7 @@
 EmberMail.EmailEventsRoute = Ember.Route.extend
   setupController: (controller, email) ->
     controller.set 'model', []
+    controller.set 'loading', true
     model = @controllerFor('email').get('model')
     # controller.set 'model', [{title: "high"},{title: "five"}]
 
@@ -21,3 +22,4 @@ EmberMail.EmailEventsRoute = Ember.Route.extend
       console.log('model keen data', data)
       controller.set 'model', data.result.map (item)->
         EmberMail.Event.create(item)
+      controller.set 'loading', false
