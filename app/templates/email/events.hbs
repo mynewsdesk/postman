@@ -3,8 +3,9 @@
     <th>type</th>
     <th>category</th>
     <th>ip</th>
-    <th>timestamp</th>
-    <th>useragent</th>
+    <th>time</th>
+    <th>material</th>
+    <th>source</th>
   </tr>
   {{#each event in controller}}
     {{log event}}
@@ -13,7 +14,16 @@
       <td>{{event.category}}</td>
       <td>{{event.ip}}</td>
       <td>{{prettyDate event.timestamp}}</td>
-      <td>{{event.useragent}}</td>
+      <td>
+        {{#if event.material_url}}
+          <a {{bind-attr href=event.material_url}}>{{event.material_type}}#{{event.material_id}}</a>
+        {{/if}}
+      </td>
+      <td>
+        {{#if event.source_url}}
+          <a {{bind-attr href=event.source_url}}>{{event.source_id}}</a>
+        {{/if}}
+      </td>
     </tr>
   {{/each}}
 </table>

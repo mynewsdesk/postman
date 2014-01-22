@@ -12,5 +12,5 @@ require 'scripts/views/*'
 require 'scripts/router'
 
 Ember.Handlebars.registerBoundHelper 'prettyDate', (timestamp) ->
-  moment.unix(timestamp).format('LLL')
+  moment.unix(timestamp).format('YYYY-MM-DD HH:mm:ss')
 
