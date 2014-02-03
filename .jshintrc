@@ -15,7 +15,7 @@
     "trailing": false,
     "smarttabs": true,
     "globals": {
-        "EmberMail": true,
+        "PostMan": true,
         "jQuery": true,
         "Ember": true,
         "Handlebars": true,
