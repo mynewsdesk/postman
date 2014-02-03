@@ -1,4 +1,4 @@
-EmberMail.ApplicationController = Ember.ObjectController.extend
+Postman.ApplicationController = Ember.ObjectController.extend
   email: null
   selected_category: 'all'
   categories: [

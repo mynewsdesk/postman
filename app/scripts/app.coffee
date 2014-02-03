@@ -1,4 +1,4 @@
-EmberMail = window.EmberMail = Ember.Application.create
+Postman = window.Postman = Ember.Application.create
   LOG_TRANSITIONS: true
   LOG_TRANSITIONS_INTERNAL: true
 

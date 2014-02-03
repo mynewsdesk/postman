@@ -1,4 +1,4 @@
-EmberMail.KeenFetcher =
+Postman.KeenFetcher =
   time:
     previous_minutes: (minutes) ->
       parseInt(((new Date).getTime() / 1000) - minutes * 60, 10)

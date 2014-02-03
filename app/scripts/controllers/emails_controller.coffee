@@ -1,1 +1,1 @@
-EmberMail.EmailsController = Ember.ArrayController.extend()
+Postman.EmailsController = Ember.ArrayController.extend()

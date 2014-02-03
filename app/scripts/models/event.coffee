@@ -1,4 +1,4 @@
-EmberMail.Event = Ember.Object.extend
+Postman.Event = Ember.Object.extend
   event: null
   category: null
   ip: null

@@ -1,2 +1,2 @@
-EmberMail.ApplicationsView = Ember.View.extend(
+Postman.ApplicationsView = Ember.View.extend(
 )

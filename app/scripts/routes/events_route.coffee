@@ -1,4 +1,4 @@
-EmberMail.EmailEventsRoute = Ember.Route.extend
+Postman.EmailEventsRoute = Ember.Route.extend
   setupController: (controller, email) ->
     controller.set 'model', []
     controller.set 'loading', true
@@ -16,10 +16,10 @@ EmberMail.EmailEventsRoute = Ember.Route.extend
       property_value: model.get('category')
     ) unless model.get('category') == 'all'
 
-    EmberMail.KeenFetcher.data(
+    Postman.KeenFetcher.data(
       filters: filters
     ).then (data)=>
       console.log('model keen data', data)
       controller.set 'model', data.result.map (item)->
-        EmberMail.Event.create(item)
+        Postman.Event.create(item)
       controller.set 'loading', false

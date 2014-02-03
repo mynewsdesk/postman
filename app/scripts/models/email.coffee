@@ -1,4 +1,4 @@
-EmberMail.Email = Ember.Object.extend
+Postman.Email = Ember.Object.extend
   email: null
   category: null
   events: []
@@ -20,7 +20,7 @@ EmberMail.Email = Ember.Object.extend
     #   property_value: @get('category')
     # ) unless @get('category') == 'all'
 
-    # EmberMail.KeenFetcher.data(
+    # Postman.KeenFetcher.data(
     #   filters: filters
     # ).then (data)=>
     #   console.log('model keen data', data)

@@ -1,2 +1,2 @@
-EmberMail.EventView = Ember.View.extend(
+Postman.EventView = Ember.View.extend(
 )
