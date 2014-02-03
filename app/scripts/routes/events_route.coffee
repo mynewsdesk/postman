@@ -3,7 +3,6 @@ Postman.EmailEventsRoute = Ember.Route.extend
     controller.set 'model', []
     controller.set 'loading', true
     model = @controllerFor('email').get('model')
-    # controller.set 'model', [{title: "high"},{title: "five"}]
 
     filters = [
         property_name: "email"
@@ -19,7 +18,6 @@ Postman.EmailEventsRoute = Ember.Route.extend
     Postman.KeenFetcher.data(
       filters: filters
     ).then (data)=>
-      console.log('model keen data', data)
       controller.set 'model', data.result.map (item)->
         Postman.Event.create(item)
       controller.set 'loading', false
