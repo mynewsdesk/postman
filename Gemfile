@@ -6,4 +6,4 @@ gem 'sinatra-assetpack', :require => 'sinatra/assetpack'
 gem 'sinatra-ember', :require => 'sinatra/ember'
 gem 'sass'
 gem 'coffee-script'
-
+gem 'dotenv'

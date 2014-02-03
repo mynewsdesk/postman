@@ -5,6 +5,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    dotenv (0.8.0)
     execjs (2.0.2)
     jsmin (1.0.1)
     rack (1.5.2)
@@ -31,6 +32,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-script
+  dotenv
   sass
   sinatra
   sinatra-assetpack
