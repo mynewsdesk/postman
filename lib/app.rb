@@ -20,7 +20,6 @@ class App < Sinatra::Base
     serve '/js',     from: 'app/scripts'         # Default
     serve '/css',    from: 'app/styles'          # Default
     serve '/images', from: 'app/images'          # Default
-    serve '/bower', from: 'app/bower_components' # Default
 
     js :application, '/js/application.js', [
       '/js/app.js',

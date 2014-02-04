@@ -1,5 +1,3 @@
-// @import "bootstrap-sass/lib/bootstrap";
-
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -142,10 +140,9 @@ a.pure-button-primary {
 header {
     background: #1f8dd6;
     width: 100%;
-    height: 100px;
     padding: 40px;
 
-    h1 {
+    h1, h2 {
       color: #fff;
       text-align: center;
       text-transform: uppercase;
