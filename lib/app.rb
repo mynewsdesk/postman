@@ -17,9 +17,8 @@ class App < Sinatra::Base
     templates '/js/templates.js', ['app/templates/**/*.hbs'], :relative_to => 'app/templates'
   }
   assets {
-    serve '/js',     from: 'app/scripts'         # Default
-    serve '/css',    from: 'app/styles'          # Default
-    serve '/images', from: 'app/images'          # Default
+    serve '/js',     from: 'app/scripts'
+    serve '/css',    from: 'app/styles'
 
     js :application, '/js/application.js', [
       '/js/app.js',
