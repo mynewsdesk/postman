@@ -4,7 +4,6 @@ Postman.Email = Ember.Object.extend
   loading: true
 
   init: ->
-    console.log 'email init'
     Postman.KeenFetcher.metric(
       analysisType: "select_unique"
       targetProperty: "category",
