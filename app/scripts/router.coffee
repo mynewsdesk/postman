@@ -1,6 +1,6 @@
 Postman.Router.map( ->
-  @resource('email', path: '/:email/:category', ->
-    @resource('email.events', path: '/events', ->
+  @resource('email', path: '/email/:email', ->
+    @resource('email.events', path: 'events/:category', ->
     )
   )
 )

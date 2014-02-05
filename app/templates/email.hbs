@@ -1,2 +1,15 @@
-<h1>events for <em>{{ email }}</em></h1>
-{{outlet}}
+<div class="pure-g-r">
+  <div class="pure-u-1">
+    <h1>{{ email }}</h1>
+    {{#if loading }}
+      loading categories...
+    {{else}}
+      {{#each category in categories}}
+        {{#link-to 'email.events' email category class="button-xsmall pure-button"}}{{ category }}{{/link-to}}
+      {{/each}}
+    {{/if}}
+  </div>
+  <div class="pure-u-1">
+    {{outlet}}
+  </div>
+</div>

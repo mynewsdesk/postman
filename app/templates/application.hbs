@@ -3,14 +3,11 @@
     <h2>Handles {{view Postman.OdometerView contentBinding=model}} events</h2>
 </header>
 
-<div class="pure-g">
+<div class="pure-g-r">
     <div class="pure-u-1">
         <br>
         <form class="pure-form">
             {{input value=email placeholder='email address'}}
-
-            {{view Ember.Select content=categories selection=selected_category }}
-
             <button {{action 'search'}} class="pure-button">Search</button>
         </form>
     </div>
