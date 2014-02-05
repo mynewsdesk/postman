@@ -41,17 +41,16 @@ class App < Sinatra::Base
     end
   end
 
-  get '/' do
+  get '/signout' do
+    session[:google_auth] = nil
+    redirect to('/')
+  end
+
+  get '/*' do
     if session[:google_auth].nil?
       erb :sign_in
     else
       erb :app
     end
   end
-
-  get '/signout' do
-    session[:google_auth] = nil
-    redirect to('/')
-  end
-
 end
