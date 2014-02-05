@@ -36,25 +36,6 @@ label {
 }
 
 /*
- * -- LAYOUT STYLES --
- * These are some useful classes which I will need
- */
-.l-box {
-    padding: 1em;
-}
-
-.l-box-lrg {
-    padding: 2em;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
-}
-
-.is-center {
-    text-align: center;
-}
-
-
-
-/*
  * -- PURE FORM STYLES --
  * Style the form inputs and labels
  */
@@ -70,6 +51,11 @@ label {
     font-size: 100%;
     width: 100%;
     margin-bottom: 1em;
+}
+.pure-form {
+    .pure-button {
+        width: 100%;
+    }
 }
 
 /*
