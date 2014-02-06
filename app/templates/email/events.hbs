@@ -22,14 +22,8 @@
     {{#each event in controller}}
       {{log event}}
       <tr>
-        <td>
-          <i {{bind-attr class="event.fontAwesome" }}></i>
-          {{ event.event }}
-          {{#if event.tooltip }}
-            <span class="tooltip" {{bind-attr title="event.reason"}}>
-              <i class="fa fa-info-circle"></i>
-            </span>
-          {{/if}}
+        <td class="event-type">
+          <i data-toggle="tooltip" {{bind-attr class="event.fontAwesome" title="event.tooltip"}}></i>
         </td>
         <td>{{event.category}}</td>
         <td>{{event.ip}}</td>

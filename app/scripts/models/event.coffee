@@ -9,7 +9,10 @@ Postman.Event = Ember.Object.extend
   reason: null
 
   tooltip: (->
-    @get('reason') if @get('event') == 'bounce'
+    if @get('event') == 'bounce'
+      "Bounce: #{@get 'reason'}"
+    else
+      @get 'event'
   ).property('reason')
 
   fontAwesome: (->
