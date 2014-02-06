@@ -6,6 +6,11 @@ Postman.Event = Ember.Object.extend
   material_type: null
   material_id: null
   source_id: null
+  reason: null
+
+  tooltip: (->
+    @get('reason') if @get('event') == 'bounce'
+  ).property('reason')
 
   source_url: (->
     "http://www.mynewsdesk.com/admin/source/edit/#{@get('source_id')}" if @get('source_id')

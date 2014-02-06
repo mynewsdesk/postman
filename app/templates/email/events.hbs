@@ -22,7 +22,14 @@
     {{#each event in controller}}
       {{log event}}
       <tr>
-        <td>{{event.event}}</td>
+        <td>
+          {{ event.event }}
+          {{#if event.tooltip }}
+            <span class="tooltip" {{bind-attr title="event.reason"}}>
+              <i class="fa fa-info-circle"></i>
+            </span>
+          {{/if}}
+        </td>
         <td>{{event.category}}</td>
         <td>{{event.ip}}</td>
         <td>{{prettyDate event.timestamp}}</td>
