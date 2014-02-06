@@ -5,7 +5,7 @@
       loading categories...
     {{else}}
       {{#each category in categories}}
-        {{#link-to 'email.events' email category class="button-xsmall pure-button"}}{{ category }}{{/link-to}}
+        {{#link-to 'email.events' email category.url_param class="button-xsmall pure-button"}}{{ category.name }}{{/link-to}}
       {{/each}}
     {{/if}}
   </div>

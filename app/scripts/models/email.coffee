@@ -13,6 +13,7 @@ Postman.Email = Ember.Object.extend
         property_value: @get('email')
       ]
     ).then (data)=>
-      @set 'categories', data
+      @set 'categories', data.map (category)->
+        Postman.Category.create name: category
       @set 'loading', false
 
