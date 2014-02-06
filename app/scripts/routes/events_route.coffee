@@ -6,16 +6,16 @@ Postman.EmailEventsRoute = Ember.Route.extend
     emailModel = @controllerFor('email').get('model')
     filters = [
         property_name: "email"
-        operator: "eq",
+        operator: "eq"
         property_value: emailModel.get('email')
+      ,
+        property_name: "category"
+        operator: "eq"
+        property_value: Postman.Category.from_url(model.category).name
     ]
-    filters.unshift(
-      property_name: "category"
-      operator: "eq",
-      property_value: Postman.Category.from_url(model.category).name
-    ) unless model.category == 'all'
 
     Postman.KeenFetcher.data(
+      timeframe: 'this_1_months'
       filters: filters
     ).then (data)=>
       controller.set 'model', data.result.map (item)->
