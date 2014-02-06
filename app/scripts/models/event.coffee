@@ -12,6 +12,20 @@ Postman.Event = Ember.Object.extend
     @get('reason') if @get('event') == 'bounce'
   ).property('reason')
 
+  fontAwesome: (->
+    icons =
+      bounce: 'times-circle-o'
+      click: 'hand-o-up'
+      deferred: 'refresh'
+      delivered: 'inbox'
+      dropped: 'arrow-circle-o-down'
+      open: 'envelope-o'
+      processed: 'cog'
+      spamreport: 'bolt'
+
+    "fa fa-#{icons[@.get('event')]}"
+  ).property('event')
+
   source_url: (->
     "http://www.mynewsdesk.com/admin/source/edit/#{@get('source_id')}" if @get('source_id')
   ).property('source_id')

@@ -23,6 +23,7 @@
       {{log event}}
       <tr>
         <td>
+          <i {{bind-attr class="event.fontAwesome" }}></i>
           {{ event.event }}
           {{#if event.tooltip }}
             <span class="tooltip" {{bind-attr title="event.reason"}}>
