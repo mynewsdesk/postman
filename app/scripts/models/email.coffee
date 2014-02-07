@@ -13,6 +13,7 @@ Postman.Email = Ember.Object.extend
         operator: "eq",
         property_value: @get('email')
       ]
+      timeframe: 'this_30_days'
     ).then (data)=>
       if data.length
         @set 'categories', data.map (category)->
