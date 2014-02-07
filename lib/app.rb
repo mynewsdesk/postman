@@ -9,16 +9,29 @@ class App < Sinatra::Base
 
   set :root, Pathname(__dir__).parent # You must set app root
   set :views, settings.root + 'app/views'
+  enable :logging
 
   register Sinatra::AssetPack
   register Sinatra::Ember
 
   ember {
-    templates '/js/templates.js', ['app/templates/**/*.hbs'], :relative_to => 'app/templates'
+    templates '/js/compiled_templates.js', ['app/templates/**/*.hbs'], :relative_to => 'app/templates'
   }
+
   assets {
     serve '/js',     from: 'app/scripts'
     serve '/css',    from: 'app/styles'
+
+    css :application, '/css/application.css', [
+      '/css/vendor/pure.min.css',
+      '/css/vendor/odometer-theme-minimal.css',
+      '/css/vendor/bootstrap.min.css',
+      '/css/style.css',
+    ]
+
+    js :templates, '/js/templates.js', [
+      '/js/compiled_templates.js',
+    ]
 
     js :application, '/js/application.js', [
       '/js/app.js',
@@ -30,8 +43,9 @@ class App < Sinatra::Base
       '/js/router.js',
     ]
 
-    js_compression  :jsmin    # :jsmin | :yui | :closure | :uglify
+    js_compression  :uglify # :jsmin | :yui | :closure | :uglify
     css_compression :sass   # :simple | :sass | :yui | :sqwish
+    prebuild true
   }
 
   %w(get post).each do |method|

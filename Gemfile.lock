@@ -9,6 +9,7 @@ GEM
     execjs (2.0.2)
     hashie (2.0.5)
     jsmin (1.0.1)
+    multi_json (1.8.4)
     omniauth (1.2.1)
       hashie (>= 1.2, < 3)
       rack (~> 1.0)
@@ -44,6 +45,9 @@ GEM
     sinatra-ember (0.0.2)
       sinatra
     tilt (1.4.1)
+    uglifier (2.1.2)
+      execjs (>= 0.3.0)
+      multi_json (~> 1.0, >= 1.0.2)
 
 PLATFORMS
   ruby
@@ -56,3 +60,4 @@ DEPENDENCIES
   sinatra
   sinatra-assetpack
   sinatra-ember
+  uglifier

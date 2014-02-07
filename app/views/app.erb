@@ -4,10 +4,7 @@
         <meta charset="utf-8">
         <title>Postman</title>
 
-        <link rel="stylesheet" href="/css/vendor/pure.min.css">
-        <link rel="stylesheet" href="/css/style.css">
-        <link rel="stylesheet" href="/css/vendor/odometer-theme-minimal.css">
-        <link rel="stylesheet" href="/css/vendor/bootstrap.min.css">
+        <%= css :application, :media => 'screen' %>
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 </head>
     <body>
@@ -18,9 +15,7 @@
         <script src="/js/vendor/ember.min.js"></script>
         <script src="/js/vendor/bootstrap.min.js"></script>
 
-        <script src="/js/templates.js"></script>
-
-        <script src="/js/application.js"></script>
+        <%= js :application, :templates %>
 
         <script type="text/javascript">
             window.PostmanConfig = {
