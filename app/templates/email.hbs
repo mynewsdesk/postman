@@ -1,12 +1,16 @@
 <div class="pure-g-r">
   <div class="pure-u-1">
     <h1>{{ email }}</h1>
-    {{#if loading }}
-      loading categories...
+    {{#if not_found }}
+      Email not found, check your spelling
     {{else}}
-      {{#each category in categories}}
-        {{#link-to 'email.events' email category.url_param class="button-xsmall pure-button"}}{{ category.name }}{{/link-to}}
-      {{/each}}
+      {{#if loading }}
+        loading categories...
+      {{else}}
+        {{#each category in categories}}
+          {{#link-to 'email.events' email category.url_param class="button-xsmall pure-button"}}{{ category.name }}{{/link-to}}
+        {{/each}}
+      {{/if}}
     {{/if}}
   </div>
   <div class="pure-u-1">

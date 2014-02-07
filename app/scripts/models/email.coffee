@@ -2,6 +2,7 @@ Postman.Email = Ember.Object.extend
   email: null
   categories: []
   loading: true
+  not_found: false
 
   init: ->
     Postman.KeenFetcher.metric(
@@ -13,7 +14,9 @@ Postman.Email = Ember.Object.extend
         property_value: @get('email')
       ]
     ).then (data)=>
-      @set 'categories', data.map (category)->
-        Postman.Category.create name: category
+      if data.length
+        @set 'categories', data.map (category)->
+          Postman.Category.create name: category
+      else
+        @set 'not_found', true
       @set 'loading', false
-
