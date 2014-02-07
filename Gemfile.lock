@@ -1,6 +1,8 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    bootstrap-sass (3.1.0.2)
+      sass (~> 3.2)
     coffee-script (2.2.0)
       coffee-script-source
       execjs
@@ -32,7 +34,7 @@ GEM
     ruby-openid (2.3.0)
     ruby-openid-apps-discovery (1.2.0)
       ruby-openid (>= 2.1.7)
-    sass (3.2.13)
+    sass (3.2.14)
     sinatra (1.4.4)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -53,6 +55,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass
   coffee-script
   dotenv
   omniauth-google-apps

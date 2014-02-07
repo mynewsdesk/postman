@@ -13,6 +13,7 @@ class App < Sinatra::Base
 
   register Sinatra::AssetPack
   register Sinatra::Ember
+  ::Sass.load_paths << settings.root + 'app/styles'
 
   ember {
     templates '/js/compiled_templates.js', ['app/templates/**/*.hbs'], :relative_to => 'app/templates'
@@ -23,14 +24,16 @@ class App < Sinatra::Base
     serve '/css',    from: 'app/styles'
 
     css :application, '/css/application.css', [
-      '/css/vendor/pure.min.css',
       '/css/vendor/odometer-theme-minimal.css',
-      '/css/vendor/bootstrap.min.css',
       '/css/style.css',
     ]
 
     js :templates, '/js/templates.js', [
       '/js/compiled_templates.js',
+    ]
+
+    js :bootstrap, '/js/bootstrap.js', [
+      '/js/vendor/bootstrap/tooltip.js',
     ]
 
     js :application, '/js/application.js', [

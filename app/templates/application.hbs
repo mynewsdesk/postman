@@ -1,21 +1,24 @@
-<header>
-    <h1>Postman</a>
-    <h2>Search in {{view Postman.OdometerView contentBinding=model}} email events</h2>
-    <form class="pure-form">
-        {{input value=email placeholder='email address'}}
-        <button {{action 'search'}} class="pure-button">Search</button>
-    </form>
-</header>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 bg-primary" id="header">
+            <div class="row">
+                <div class="col-md-10">
+                    <h1>Postman <small>Search in {{view Postman.OdometerView contentBinding=model}} email events</small></h1>
+                </div>
+                <div class="col-md-2 text-right">
+                    <a href="/signout" class="signout">Sign out</a>
+                </div>
+            </div>
+            {{input action="search" value=email placeholder='email address' class="form-control"}}
+            <button {{action "search"}} class="btn btn-default btn-block">Search</button>
+        </div>
+    </div>
 
-<div class="pure-g-r">
-    <div class="pure-u-1">
-        <br>
-    </div>
-    <div class="pure-u-1">
-        {{outlet}}
-    </div>
-    <div class="pure-u-1" id="signin">
-        <a href="/signout" class="pure-button">Sign out</a>
+    {{outlet}}
+
+    <div class="row">
+        <div class="col-md-12">
+            
+        </div>
     </div>
 </div>
-

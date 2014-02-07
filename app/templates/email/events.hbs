@@ -1,44 +1,44 @@
-{{#if loading }}
-
-  <div class="spinner">
-    <div class="rect1"></div>
-    <div class="rect2"></div>
-    <div class="rect3"></div>
-    <div class="rect4"></div>
-    <div class="rect5"></div>
-  </div>
-
-{{else}}
-
-  <table class="pure-table pure-table-horizontal">
-    <tr>
-      <th>type</th>
-      <th>category</th>
-      <th>ip</th>
-      <th>time</th>
-      <th>material</th>
-      <th>source</th>
-    </tr>
-    {{#each event in controller}}
-      {{log event}}
-      <tr>
-        <td class="event-type">
-          <i data-toggle="tooltip" {{bind-attr class="event.fontAwesome" title="event.tooltip"}}></i>
-        </td>
-        <td>{{event.category}}</td>
-        <td>{{event.ip}}</td>
-        <td>{{prettyDate event.timestamp}}</td>
-        <td>
-          {{#if event.material_url}}
-            <a {{bind-attr href=event.material_url}}>{{event.material_type}}#{{event.material_id}}</a>
-          {{/if}}
-        </td>
-        <td>
-          {{#if event.source_url}}
-            <a {{bind-attr href=event.source_url}}>{{event.source_id}}</a>
-          {{/if}}
-        </td>
-      </tr>
-    {{/each}}
-  </table>
-{{/if}}
+<div class="row">
+    <div class="col-md-12">
+        {{#if loading }}
+            <div class="spinner">
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+                <div class="rect4"></div>
+                <div class="rect5"></div>
+            </div>
+        {{else}}
+            <table class="table">
+                <tr>
+                    <th></th>
+                    <th>Type of mail</th>
+                    <th>Ip</th>
+                    <th>Time</th>
+                    <th>Material</th>
+                    <th>Source</th>
+                </tr>
+                {{#each event in controller}}
+                    <tr>
+                        <td class="text-center">
+                            <i data-toggle="tooltip" {{bind-attr class="event.fontAwesome" title="event.tooltip"}}></i>
+                        </td>
+                        <td>{{event.category}}</td>
+                        <td>{{event.ip}}</td>
+                        <td>{{prettyDate event.timestamp}}</td>
+                        <td>
+                            {{#if event.material_url}}
+                                <a {{bind-attr href=event.material_url}}>{{event.material_type}}#{{event.material_id}}</a>
+                            {{/if}}
+                        </td>
+                        <td>
+                            {{#if event.source_url}}
+                                <a {{bind-attr href=event.source_url}}>{{event.source_id}}</a>
+                            {{/if}}
+                        </td>
+                    </tr>
+                {{/each}}
+            </table>
+        {{/if}}
+    </div>
+</div>

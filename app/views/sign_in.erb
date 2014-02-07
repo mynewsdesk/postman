@@ -4,16 +4,22 @@
         <meta charset="utf-8">
         <title>Postman</title>
 
-        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
-        <link rel="stylesheet" href="css/style.css">
+        <%= css :application, :media => 'screen' %>
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 </head>
     <body>
-        <header>
-            <h1>Postman</a>
-        </header>
-        <div class="pure-g">
-            <div class="pure-u-1" id="signin">
-                <a href="/auth/google_apps" class="pure-button">Sign in</a>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 bg-primary" id="header">
+                    <h1>Postman</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 signin">
+                    <p>
+                        <a href="/auth/google_apps" class="btn btn-block btn-primary">Sign in</a>
+                    </p>
+                </div>
             </div>
         </div>
     </body>

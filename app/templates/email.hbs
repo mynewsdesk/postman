@@ -1,19 +1,23 @@
-<div class="pure-g-r">
-  <div class="pure-u-1">
-    <h1>{{ email }}</h1>
-    {{#if not_found }}
-      Email not found, check your spelling
-    {{else}}
-      {{#if loading }}
-        loading categories...
-      {{else}}
-        {{#each category in categories}}
-          {{#link-to 'email.events' email category.url_param class="button-xsmall pure-button"}}{{ category.name }}{{/link-to}}
-        {{/each}}
-      {{/if}}
-    {{/if}}
-  </div>
-  <div class="pure-u-1">
-    {{outlet}}
-  </div>
+<div class="row">
+    <div class="col-md-12">
+        <h2>{{ email }}</h2>
+        {{#if not_found }}
+            <div class="alert alert-warning">Email not found, check your spelling</div>
+        {{/if}}
+    </div>
+    <div class="col-md-12">
+        {{#if loading }}
+            loading categories...
+        {{else}}
+            {{#unless not_found }}
+                <ul class="nav nav-tabs">
+                    {{#each category in categories}}
+                        <li>{{#link-to 'email.events' email category.url_param}}{{ category.name }}{{/link-to}}</li>
+                    {{/each}}
+                </ul>
+            {{/unless}}
+        {{/if}}
+    </div>
 </div>
+
+{{outlet}}
