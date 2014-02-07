@@ -15,7 +15,7 @@ Postman.EmailEventsRoute = Ember.Route.extend
     ]
 
     Postman.KeenFetcher.data(
-      timeframe: 'this_1_months'
+      timeframe: 'this_30_days'
       filters: filters
     ).then (data)=>
       controller.set 'model', data.result.map (item)->
