@@ -1,5 +1,5 @@
 Postman.ApplicationRoute = Ember.Route.extend
   setupController: (controller)->
-    controller.set 'model', window.PostmanConfig.startNumber
+    controller.set 'model', Postman.configs.startNumber
     Postman.KeenFetcher.metric(analysisType: "count").then (data)->
       controller.set 'model', data

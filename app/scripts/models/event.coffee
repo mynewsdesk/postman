@@ -8,6 +8,11 @@ Postman.Event = Ember.Object.extend
   source_id: null
   reason: null
 
+  customAttributes: (->
+    Postman.configs.customEventAttributes.map (attribute)=>
+      @get attribute
+  ).property(Postman.configs.customEventAttributes, 'Postman.configs')
+
   tooltip: (->
     if @get('event') == 'bounce'
       "Bounce: #{@get 'reason'}"
@@ -28,11 +33,3 @@ Postman.Event = Ember.Object.extend
 
     "fa fa-#{icons[@.get('event')]}"
   ).property('event')
-
-  source_url: (->
-    "http://www.mynewsdesk.com/admin/source/edit/#{@get('source_id')}" if @get('source_id')
-  ).property('source_id')
-
-  material_url: (->
-    "http://www.mynewsdesk.com/admin/source/edit_#{@get('material_type').toLowerCase()}/#{@get('material_id')}" if @get('material_id') && @get('material_type')
-  ).property('material_id', 'material_type')

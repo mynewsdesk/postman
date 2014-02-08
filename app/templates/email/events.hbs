@@ -15,8 +15,9 @@
                     <th>Type of mail</th>
                     <th>Ip</th>
                     <th>Time</th>
-                    <th>Material</th>
-                    <th>Source</th>
+                    {{#each attribute in Postman.configs.customEventAttributes }}
+                        <th>{{attribute}}</th>
+                    {{/each}}
                 </tr>
                 {{#each event in controller}}
                     <tr>
@@ -26,16 +27,9 @@
                         <td>{{event.category}}</td>
                         <td>{{event.ip}}</td>
                         <td>{{prettyDate event.timestamp}}</td>
-                        <td>
-                            {{#if event.material_url}}
-                                <a {{bind-attr href=event.material_url}}>{{event.material_type}}#{{event.material_id}}</a>
-                            {{/if}}
-                        </td>
-                        <td>
-                            {{#if event.source_url}}
-                                <a {{bind-attr href=event.source_url}}>{{event.source_id}}</a>
-                            {{/if}}
-                        </td>
+                        {{#each attribute in event.customAttributes }}
+                            <td>{{attribute}}</td>
+                        {{/each}}
                     </tr>
                 {{/each}}
             </table>
