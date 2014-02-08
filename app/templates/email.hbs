@@ -12,7 +12,7 @@
             {{#unless not_found }}
                 <ul class="nav nav-tabs">
                     {{#each category in categories}}
-                        <li>{{#link-to 'email.events' email category.url_param}}{{ category.name }}{{/link-to}}</li>
+                        {{view Postman.NavView category=category}}
                     {{/each}}
                 </ul>
             {{/unless}}

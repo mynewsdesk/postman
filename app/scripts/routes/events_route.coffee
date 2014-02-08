@@ -1,7 +1,9 @@
 Postman.EmailEventsRoute = Ember.Route.extend
   setupController: (controller, model) ->
+    category = Postman.Category.from_url(model.category)
     controller.set 'model', []
     controller.set 'loading', true
+    @controllerFor('application').set('category', category)
 
     emailModel = @controllerFor('email').get('model')
     filters = [
@@ -11,7 +13,7 @@ Postman.EmailEventsRoute = Ember.Route.extend
       ,
         property_name: "category"
         operator: "eq"
-        property_value: Postman.Category.from_url(model.category).name
+        property_value: category.name
     ]
 
     Postman.KeenFetcher.data(
