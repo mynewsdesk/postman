@@ -13,6 +13,11 @@ Postman.Event = Ember.Object.extend
       @get attribute
   ).property(Postman.configs.customEventAttributes, 'Postman.configs')
 
+  filteredCustomAttributes: (->
+    @get('customAttributes').filter (attribute) =>
+      attribute?
+  ).property('customAttributes')
+
   tooltip: (->
     if @get('event') == 'bounce'
       "Bounce: #{@get 'reason'}"

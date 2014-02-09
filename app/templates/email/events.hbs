@@ -15,7 +15,7 @@
                     <th>Type of mail</th>
                     <th>Ip</th>
                     <th>Time</th>
-                    {{#each attribute in Postman.configs.customEventAttributes }}
+                    {{#each attribute in customAttributes }}
                         <th>{{attribute}}</th>
                     {{/each}}
                 </tr>
@@ -27,7 +27,7 @@
                         <td>{{event.category}}</td>
                         <td>{{event.ip}}</td>
                         <td>{{prettyDate event.timestamp}}</td>
-                        {{#each attribute in event.customAttributes }}
+                        {{#each attribute in event.filteredCustomAttributes }}
                             <td>{{attribute}}</td>
                         {{/each}}
                     </tr>
