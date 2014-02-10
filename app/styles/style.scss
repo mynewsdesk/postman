@@ -31,3 +31,29 @@
 .odometer {
   margin-top: -3px;
 }
+
+
+.navbar-default {
+  background-color: $brand-primary;
+  border-color: $brand-primary;
+  border-radius: 0;
+
+  .navbar-text, .navbar-brand,
+  .navbar-nav > li > a  {
+    color: #fff;
+  }
+
+  .navbar-nav > .active > a,
+  .navbar-nav > .active > a:hover,
+  .navbar-nav > .active > a:focus {
+    background-color: darken($brand-primary, 5);
+    color: #fff;
+  }
+
+
+  .navbar-nav > li > a:hover,
+  .navbar-nav > li > a:focus {
+    background-color: darken($brand-primary, 5);
+    color: #fff;
+  }
+}
