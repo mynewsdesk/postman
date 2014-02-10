@@ -9,7 +9,7 @@
                 <div class="rect5"></div>
             </div>
         {{else}}
-            <table class="table">
+            <table class="table table-hover">
                 <tr>
                     <th></th>
                     <th>Type of mail</th>
@@ -21,7 +21,7 @@
                 </tr>
                 {{#each event in controller}}
                     <tr>
-                        <td class="text-center">
+                        <td class="text-center text-primary">
                             <i data-toggle="tooltip" {{bind-attr class="event.fontAwesome" title="event.tooltip"}}></i>
                         </td>
                         <td>{{event.category}}</td>

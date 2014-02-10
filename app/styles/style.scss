@@ -12,8 +12,9 @@
   }
 
   h1 {
+    // color: #fff;
     small {
-      color: inherit;
+      color: $gray-dark;
     }
   }
   input,button {
@@ -21,6 +22,11 @@
   }
 }
 
+.table {
+  & > tbody > tr > th {
+    border-top: none;
+  }
+}
 
 .odometer {
   margin-top: -3px;
