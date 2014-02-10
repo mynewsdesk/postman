@@ -5,22 +5,6 @@
   margin-top: 20px;
 }
 
-#header {
-  padding-bottom: 10px;
-  .signout {
-    color: inherit;
-  }
-
-  h1 {
-    // color: #fff;
-    small {
-      color: $gray-dark;
-    }
-  }
-  input,button {
-    margin-bottom: 5px;
-  }
-}
 
 .table {
   & > tbody > tr > th {

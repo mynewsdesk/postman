@@ -3,10 +3,12 @@ Postman.Router.reopen
 
 Postman.Router.map( ->
   @resource('advance', path: '/advance', ->
-
+    @route('search', path: '/search', ->)
   )
-  @resource('email', path: '/email/:email', ->
-    @resource('email.events', path: 'events/:category', ->
+
+  @resource('emails', ->
+    @resource('email', path: ':email', ->
+      @route('events', path:'events/:category')
     )
   )
 )
