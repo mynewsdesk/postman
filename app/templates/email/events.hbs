@@ -12,6 +12,9 @@
             <table class="table table-hover">
                 <tr>
                     <th></th>
+                    {{#if showEmail }}
+                        <th>Email</th>
+                    {{/if}}
                     <th>Type of mail</th>
                     <th>Ip</th>
                     <th>Time</th>
@@ -24,6 +27,9 @@
                         <td class="text-center text-primary">
                             <i data-toggle="tooltip" {{bind-attr class="event.fontAwesome" title="event.tooltip"}}></i>
                         </td>
+                        {{#if showEmail }}
+                            <td>{{ event.email }}</td>
+                        {{/if}}
                         <td>{{event.category}}</td>
                         <td>{{event.ip}}</td>
                         <td>{{prettyDate event.timestamp}}</td>
