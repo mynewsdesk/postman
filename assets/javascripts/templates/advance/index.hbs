@@ -1,13 +1,28 @@
+
+{{#each fields}}
+    <div class="row">
+        <div class="col-md-5">
+            <div class="form-group">
+                {{view Ember.Select value=selectedAttribute content=Postman.configs.customEventAttributes class="form-control"}}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                {{input action="search" value=attributeValue placeholder='string' class="form-control"}}
+            </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group">
+                <button {{action "addField"}} class="btn btn-primary btn-block"><i class="fa fa-plus"></i></button>
+            </div>
+        </div>
+    </div>
+{{/each}}
+
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
         <div class="form-group">
-            {{view Ember.Select value=selectedAttribute content=Postman.configs.customEventAttributes class="form-control"}}
-        </div>
-        <div class="form-group">
-            {{input action="search" value=attributeValue placeholder='string' class="form-control"}}
-        </div>
-        <div class="form-group">
-            <button {{action "search"}} class="btn btn-primary btn-block">Search</button>
+            <button {{action "search"}} class="btn btn-primary btn-block"><i class="fa fa-search"></i> Search</button>
         </div>
     </div>
 </div>

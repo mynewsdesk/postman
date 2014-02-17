@@ -9,36 +9,41 @@
                 <div class="rect5"></div>
             </div>
         {{else}}
-            <table class="table table-hover">
-                <tr>
-                    <th></th>
-                    {{#if showEmail }}
-                        <th>Email</th>
-                    {{/if}}
-                    <th>Type of mail</th>
-                    <th>Ip</th>
-                    <th>Time</th>
-                    {{#each attribute in customAttributes }}
-                        <th>{{attribute}}</th>
-                    {{/each}}
-                </tr>
-                {{#each event in controller}}
+            {{#if controller.length }}
+                <table class="table table-hover">
                     <tr>
-                        <td class="text-center text-primary">
-                            <i data-toggle="tooltip" {{bind-attr class="event.fontAwesome" title="event.tooltip"}}></i>
-                        </td>
+                        <th></th>
                         {{#if showEmail }}
-                            <td>{{ event.email }}</td>
+                            <th>Email</th>
                         {{/if}}
-                        <td>{{event.category}}</td>
-                        <td>{{event.ip}}</td>
-                        <td>{{prettyDate event.timestamp}}</td>
-                        {{#each attribute in event.filteredCustomAttributes }}
-                            <td>{{attribute}}</td>
+                        <th>Type of mail</th>
+                        <th>Ip</th>
+                        <th>Time</th>
+                        {{#each attribute in customAttributes }}
+                            <th>{{attribute}}</th>
                         {{/each}}
                     </tr>
-                {{/each}}
-            </table>
+                    {{#each event in controller}}
+                        <tr>
+                            <td class="text-center text-primary">
+                                <i data-toggle="tooltip" {{bind-attr class="event.fontAwesome" title="event.tooltip"}}></i>
+                            </td>
+                            {{#if showEmail }}
+                                <td>{{ event.email }}</td>
+                            {{/if}}
+                            <td>{{event.category}}</td>
+                            <td>{{event.ip}}</td>
+                            <td>{{prettyDate event.timestamp}}</td>
+                            {{#each attribute in event.filteredCustomAttributes }}
+                                <td>{{attribute}}</td>
+                            {{/each}}
+                        </tr>
+                    {{/each}}
+
+                </table>
+            {{else}}
+                <div class="alert alert-warning">No events not found</div>
+            {{/if}}
         {{/if}}
     </div>
 </div>

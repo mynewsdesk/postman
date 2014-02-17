@@ -1,5 +1,6 @@
 Postman.AdvanceSearchController = Ember.ArrayController.extend
-  sortProperties: ['timestamp'],
+  queryParams: Postman.configs.customEventAttributes
+  sortProperties: ['timestamp']
   sortAscending: false
   showEmail: true
   customAttributes: (->

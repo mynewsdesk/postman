@@ -9,6 +9,9 @@
 </head>
     <body>
         <script type="text/javascript">
+            Ember = {};
+            Ember.ENV = {FEATURES: {"query-params-new": true}};
+
             window.PostmanConfig = {
                 startNumber: "<%= ENV['START_NUMBER'] || 0 %>",
                 customEventAttributes: <%= (ENV['CUSTOM_EVENT_ATTRIBUTES'] || "").split(',').to_json %>
