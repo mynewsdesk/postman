@@ -1,55 +1,23 @@
 require 'pathname'
 class App < Sinatra::Base
-  use Rack::Session::Cookie, key: 'rack.session',
-                             path: '/',
-                             secret: ENV['SESSION_SECRET']
-  use OmniAuth::Builder do
-    provider :google_apps, domain: 'newsdesk.se'
+
+  configure do
+    use Rack::Session::Cookie, key: 'rack.session',
+                               path: '/',
+                               secret: ENV['SESSION_SECRET']
+    use OmniAuth::Builder do
+      provider :google_apps, domain: 'newsdesk.se'
+    end
+    set :root, Pathname(__dir__).parent
+    set :views, settings.root + 'views'
+    enable :logging
+
+    register Sinatra::AssetPipeline
+
+    sprockets.append_path HandlebarsAssets.path
+    HandlebarsAssets::Config.ember = true
   end
 
-  set :root, Pathname(__dir__).parent # You must set app root
-  set :views, settings.root + 'app/views'
-  enable :logging
-
-  register Sinatra::AssetPack
-  register Sinatra::Ember
-  ::Sass.load_paths << settings.root + 'app/styles'
-
-  ember {
-    templates '/js/compiled_templates.js', ['app/templates/**/*.hbs'], :relative_to => 'app/templates'
-  }
-
-  assets {
-    serve '/js',     from: 'app/scripts'
-    serve '/css',    from: 'app/styles'
-
-    css :application, '/css/application.css', [
-      '/css/vendor/odometer-theme-minimal.css',
-      '/css/style.css',
-    ]
-
-    js :templates, '/js/templates.js', [
-      '/js/compiled_templates.js',
-    ]
-
-    js :bootstrap, '/js/bootstrap.js', [
-      '/js/vendor/bootstrap/tooltip.js',
-    ]
-
-    js :application, '/js/application.js', [
-      '/js/app.js',
-      '/js/models/**/*.js',
-      '/js/controllers/**/*.js',
-      '/js/store/**/*.js',
-      '/js/routes/**/*.js',
-      '/js/views/**/*.js',
-      '/js/router.js',
-    ]
-
-    js_compression  :uglify # :jsmin | :yui | :closure | :uglify
-    css_compression :sass   # :simple | :sass | :yui | :sqwish
-    prebuild true
-  }
 
   %w(get post).each do |method|
     send(method, "/auth/:provider/callback") do
