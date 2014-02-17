@@ -1,13 +1,12 @@
 require 'pathname'
 class App < Sinatra::Base
-
   configure do
-    use Rack::Session::Cookie, key: 'rack.session',
-                               path: '/',
-                               secret: ENV['SESSION_SECRET']
+    use Rack::Session::Cookie, key: 'rack.session', path: '/', secret: ENV['SESSION_SECRET']
+
     use OmniAuth::Builder do
-      provider :google_apps, domain: 'newsdesk.se'
+      provider :google_apps, domain: ENV['GOOGLE_APPS_DOMAIN'] if ENV['GOOGLE_APPS_DOMAIN']
     end
+
     set :root, Pathname(__dir__).parent
     set :views, settings.root + 'views'
     enable :logging
@@ -21,18 +20,18 @@ class App < Sinatra::Base
 
   %w(get post).each do |method|
     send(method, "/auth/:provider/callback") do
-      session[:google_auth] = env['omniauth.auth']["info"]["email"]
+      session[:omniauth] = env['omniauth.auth']["uid"]
       redirect to('/')
     end
   end
 
   get '/signout' do
-    session[:google_auth] = nil
+    session[:omniauth] = nil
     redirect to('/')
   end
 
   get '/*' do
-    if session[:google_auth].nil?
+    if ENV['GOOGLE_APPS_DOMAIN'] && session[:omniauth].nil?
       erb :sign_in
     else
       erb :app
