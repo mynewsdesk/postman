@@ -13,7 +13,7 @@ class App < Sinatra::Base
     enable :logging
 
     register Sinatra::AssetPipeline
-
+    set :assets_precompile, %w(application.js application.css libs.js templates.js)
     sprockets.append_path HandlebarsAssets.path
     HandlebarsAssets::Config.ember = true
   end

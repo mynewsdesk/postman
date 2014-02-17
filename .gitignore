@@ -6,3 +6,4 @@ dist
 app/bower_components
 .env
 tmp
+public/assets
