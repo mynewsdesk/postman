@@ -42,3 +42,18 @@
     color: #fff;
   }
 }
+
+.fields {
+  .col-md-1 {
+    .btn {
+      display: none;
+    }
+  }
+  > div:last-of-type {
+    .col-md-1 {
+      .btn {
+        display: block;
+      }
+    }
+  }
+}
