@@ -7,14 +7,15 @@ Postman.ChartView = Ember.View.extend
     if @get 'content'
       Keen.onChartsReady =>
         myLineChart = new Keen.MultiLineChart @get('content'),
-          chartAreaLeft: 0
-          chartAreaTop: 0
+          chartAreaLeft: 80
+          chartAreaTop: 10
           width: @get 'width'
           height: @get 'height'
+          chartAreaWidth: @get('width') - 100
           lineWidth: 5
           color: "red"
           backgroundColor: "transparent"
-          showLegend: true
+          showLegend: false
         myLineChart.draw(@$()[0]);
   ).observes("content")
 
