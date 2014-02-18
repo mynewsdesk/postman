@@ -20,5 +20,30 @@
         </div>
     {{/if}}
 </div>
+<div class="row">
+    <div class="col-md-4">
+        <h2>Summary</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="well text-center">
+            <h3 class="text-primary">{{view Postman.OdometerView contentBinding=delivered_percent}}%</h3>
+            <p class="lead">Delivered</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="well text-center">
+            <h3 class="text-primary">{{view Postman.OdometerView contentBinding=opened_percent}}%</h3>
+            <p class="lead">Opened</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="well text-center">
+            <h3 class="text-primary">{{view Postman.OdometerView contentBinding=bounced_percent}}%</h3>
+            <p class="lead">Bounced</p>
+        </div>
+    </div>
+</div>
 
 {{outlet}}
