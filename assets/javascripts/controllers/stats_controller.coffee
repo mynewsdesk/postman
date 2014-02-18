@@ -4,16 +4,22 @@ Postman.StatsController = Ember.ObjectController.extend
   stats: null
 
   processed: (->
-    return 0 unless @.get('stats')?
-    @get('stats').filter((eventStats)->
-      eventStats.event == "processed"
-    )[0].result
+    result = 0
+    if @.get('stats')?
+      eventResult = @get('stats').filter((eventStats)->
+        eventStats.event == "processed"
+      )[0]
+      result = eventResult.result if eventResult?
+    result
   ).property('stats')
   delivered: (->
-    return 0 unless @.get('stats')?
-    @get('stats').filter((eventStats)->
-      eventStats.event == "delivered"
-    )[0].result
+    result = 0
+    if @.get('stats')?
+      eventResult = @get('stats').filter((eventStats)->
+        eventStats.event == "delivered"
+      )[0]
+      result = eventResult.result if eventResult?
+    result
   ).property('stats')
   delivered_percent: (->
     if @get('delivered') && @get('processed')
@@ -23,10 +29,13 @@ Postman.StatsController = Ember.ObjectController.extend
   ).property('delivered', 'processed')
 
   opened: (->
-    return 0 unless @.get('stats')?
-    @get('stats').filter((eventStats)->
-      eventStats.event == "open"
-    )[0].result
+    result = 0
+    if @.get('stats')?
+      eventResult = @get('stats').filter((eventStats)->
+        eventStats.event == "open"
+      )[0]
+      result = eventResult.result if eventResult?
+    result
   ).property('stats')
   opened_percent: (->
     if @get('opened') && @get('processed')
@@ -36,10 +45,13 @@ Postman.StatsController = Ember.ObjectController.extend
   ).property('opened', 'processed')
 
   bounced: (->
-    return 0 unless @.get('stats')?
-    @get('stats').filter((eventStats)->
-      eventStats.event == "bounce"
-    )[0].result
+    result = 0
+    if @.get('stats')?
+      eventResult = @get('stats').filter((eventStats)->
+        eventStats.event == "bounce"
+      )[0]
+      result = eventResult.result if eventResult?
+    result
   ).property('stats')
   bounced_percent: (->
     if @get('bounced') && @get('processed')
