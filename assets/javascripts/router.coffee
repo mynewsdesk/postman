@@ -2,6 +2,9 @@ Postman.Router.reopen
   location: 'history'
 
 Postman.Router.map( ->
+  @resource('stats', path: '/stats', ->
+    @route('category', path: '/:category', ->)
+  )
   @resource('advance', path: '/advance', ->
     @route('search', path: '/search', ->)
   )

@@ -23,3 +23,15 @@ Postman.KeenFetcher =
         new Ember.$.getJSON(url, options).then (data) ->
           resolve(data)
     )
+  series: (options) ->
+    new Ember.RSVP.Promise((resolve, reject) ->
+      seriesOptions =
+        analysisType: "count"
+        timeframe: "previous_30_days"
+        groupBy: "category"
+        interval: "daily"
+      $.extend seriesOptions, options
+      Keen.onChartsReady ->
+        serie = new window.Keen.Series("Sendgrid Email Events", seriesOptions)
+        resolve serie
+    )

@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col-md-12">
+        <h1>Stats</h1>
+    </div>
+    {{#if categories.length }}
+        <div class="col-md-12">
+            <div class="form-group">
+                {{ view Ember.Select
+                        content=categories
+                        value=selectedCategory
+                        optionValuePath="content.url_param"
+                        optionLabelPath="content.name"
+                        class="form-control"
+                        prompt="Filter by mail type"
+                }}
+            </div>
+            <div class="form-group">
+                <button {{action "filter"}} class="btn btn-block btn-primary">Filter</button>
+            </div>
+        </div>
+    {{/if}}
+</div>
+
+{{outlet}}
