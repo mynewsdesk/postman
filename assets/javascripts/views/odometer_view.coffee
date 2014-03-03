@@ -8,5 +8,5 @@ Postman.OdometerView = Ember.View.extend
     @set 'od', new Odometer
       el: @$()[0]
       value: @get('content')
-      format: ""
+      format: "( ddd),dd"
       theme: "minimal"
