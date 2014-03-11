@@ -4,4 +4,22 @@
     </div>
 </div>
 
+<div class="row">
+    <div class="col-md-12">
+        <h2>Events summary <small>(Unique per recipient during the last 30 days)</small></h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-7">
+        {{view Postman.PieChart contentBinding=advanceStats}}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Events <small>(during the last 10 days)</small></h2>
+    </div>
+</div>
+
 {{outlet}}

@@ -20,3 +20,13 @@ Postman.AdvanceSearchRoute = Ember.Route.extend
       controller.set 'model', data.result.map (item)->
         Postman.Event.create(item)
       controller.set 'loading', false
+
+    Postman.KeenFetcher.metric(
+      analysisType: "count_unique"
+      targetProperty: "email"
+      groupBy: 'event'
+      filters: filters
+      timeframe: 'this_30_days'
+    , false
+    ).then (data)=>
+      @controllerFor('advance').set 'advanceStats', data
