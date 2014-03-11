@@ -1,4 +1,4 @@
-Postman.ChartView = Ember.View.extend
+Postman.MultiLineChart = Ember.View.extend
   width: 100
   height: (->
     (@get('width') / 1.618) / 1.618
