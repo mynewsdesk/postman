@@ -5,7 +5,7 @@ Postman.StatsController = Ember.ObjectController.extend
 
   processed: (->
     result = 0
-    if @.get('stats')?
+    if @get('stats')?
       eventResult = @get('stats').filter((eventStats)->
         eventStats.event == "processed"
       )[0]
@@ -14,7 +14,7 @@ Postman.StatsController = Ember.ObjectController.extend
   ).property('stats')
   delivered: (->
     result = 0
-    if @.get('stats')?
+    if @get('stats')?
       eventResult = @get('stats').filter((eventStats)->
         eventStats.event == "delivered"
       )[0]
@@ -22,15 +22,15 @@ Postman.StatsController = Ember.ObjectController.extend
     result
   ).property('stats')
   delivered_percent: (->
-    if @get('delivered') && @get('processed')
-      Math.floor @get('delivered') / @get('processed') * 100
+    if @get('delivered') && @get('total')
+      Math.floor @get('delivered') / @get('total') * 100
     else
       0
-  ).property('delivered', 'processed')
+  ).property('delivered', 'total')
 
   opened: (->
     result = 0
-    if @.get('stats')?
+    if @get('stats')?
       eventResult = @get('stats').filter((eventStats)->
         eventStats.event == "open"
       )[0]
@@ -38,15 +38,15 @@ Postman.StatsController = Ember.ObjectController.extend
     result
   ).property('stats')
   opened_percent: (->
-    if @get('opened') && @get('processed')
-      Math.floor @get('opened') / @get('processed') * 100
+    if @get('opened') && @get('total')
+      Math.floor @get('opened') / @get('total') * 100
     else
       0
-  ).property('opened', 'processed')
+  ).property('opened', 'total')
 
   bounced: (->
     result = 0
-    if @.get('stats')?
+    if @get('stats')?
       eventResult = @get('stats').filter((eventStats)->
         eventStats.event == "bounce"
       )[0]
@@ -54,11 +54,31 @@ Postman.StatsController = Ember.ObjectController.extend
     result
   ).property('stats')
   bounced_percent: (->
-    if @get('bounced') && @get('processed')
-      Math.floor @get('bounced') / @get('processed') * 100
+    if @get('bounced') && @get('total')
+      Math.floor @get('bounced') / @get('total') * 100
     else
       0
-  ).property('bounced', 'processed')
+  ).property('bounced', 'total')
+
+  dropped: (->
+    result = 0
+    if @get('stats')?
+      eventResult = @get('stats').filter((eventStats)->
+        eventStats.event == "dropped"
+      )[0]
+      result = eventResult.result if eventResult?
+    result
+  ).property('stats')
+  dropped_percent: (->
+    if @get('dropped') && @get('total')
+      Math.floor @get('dropped') / @get('total') * 100
+    else
+      0
+  ).property('dropped', 'total')
+
+  total: (->
+    @get('processed') + @get('dropped')
+  ).property('processed', 'dropped')
 
   actions:
     filter: ->

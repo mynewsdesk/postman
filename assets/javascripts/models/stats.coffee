@@ -33,3 +33,8 @@ Postman.Stats =
       filters: filtersGenerator "click", category
     ).then (series)->
       controller.set 'click', series
+
+    Postman.KeenFetcher.series(
+      filters: filtersGenerator "dropped", category
+    ).then (series)->
+      controller.set 'dropped', series

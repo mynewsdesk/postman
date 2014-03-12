@@ -3,3 +3,4 @@ Postman.StatsCategoryController = Ember.ObjectController.extend
   delivered: null
   open: null
   click: null
+  dropped: null
