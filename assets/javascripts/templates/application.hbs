@@ -24,6 +24,11 @@
                         {{/linkTo}}
                     </ul>
                     <p class="navbar-text">Search in {{view Postman.OdometerView contentBinding=model}} email events</p>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            {{view Postman.DaterangepickerView startBinding="start" endBinding="end"}}
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>

@@ -1,6 +1,7 @@
 @import "bootstrap-custom";
 @import "spinner";
 @import "odometer-theme-minimal";
+@import "daterangepicker";
 
 .signin {
   margin-top: 20px;
@@ -41,6 +42,10 @@
   .navbar-nav > li > a:focus {
     background-color: darken($brand-primary, 5);
     color: #fff;
+  }
+
+  .a-daterangepicker {
+    cursor: pointer;
   }
 }
 
