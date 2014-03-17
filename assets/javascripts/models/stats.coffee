@@ -16,25 +16,30 @@ Postman.Stats =
 
     Postman.KeenFetcher.series(
       filters: filtersGenerator "bounce", category
+      timeframe: controller.controllerFor('application').get('timeframe')
     ).then (series)->
       controller.set 'bounces', series
 
     Postman.KeenFetcher.series(
       filters: filtersGenerator "delivered", category
+      timeframe: controller.controllerFor('application').get('timeframe')
     ).then (series)->
       controller.set 'delivered', series
 
     Postman.KeenFetcher.series(
       filters: filtersGenerator "open", category
+      timeframe: controller.controllerFor('application').get('timeframe')
     ).then (series)->
       controller.set 'open', series
 
     Postman.KeenFetcher.series(
       filters: filtersGenerator "click", category
+      timeframe: controller.controllerFor('application').get('timeframe')
     ).then (series)->
       controller.set 'click', series
 
     Postman.KeenFetcher.series(
       filters: filtersGenerator "dropped", category
+      timeframe: controller.controllerFor('application').get('timeframe')
     ).then (series)->
       controller.set 'dropped', series

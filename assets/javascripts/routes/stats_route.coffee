@@ -3,7 +3,7 @@ Postman.StatsRoute = Ember.Route.extend
     Postman.KeenFetcher.metric(
       analysisType: "select_unique"
       targetProperty: "category",
-      timeframe: 'this_30_days'
+      timeframe: @controllerFor('application').get('timeframe')
     ).then (data)->
       if data.length
         controller.set 'categories', data.map (category)->

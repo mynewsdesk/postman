@@ -4,3 +4,4 @@
 //= require odometer.min
 //= require ember.min
 //= require bootstrap/tooltip
+//= require daterangepicker

@@ -6,7 +6,7 @@ Postman.StatsCategoryRoute = Ember.Route.extend
     Postman.Stats.metrics controller, category.name
     Postman.KeenFetcher.metric(
       analysisType: "count_unique"
-      timeframe: "this_30_days"
+      timeframe: @controllerFor('application').get('timeframe')
       targetProperty: "email"
       groupBy: "event"
       filters: [

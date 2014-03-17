@@ -14,7 +14,7 @@ Postman.AdvanceSearchRoute = Ember.Route.extend
       filter?
 
     Postman.KeenFetcher.data(
-      timeframe: 'this_10_days'
+      timeframe: @controllerFor('application').get('timeframe')
       filters: filters
     ).then (data)=>
       controller.set 'model', data.result.map (item)->
@@ -26,7 +26,7 @@ Postman.AdvanceSearchRoute = Ember.Route.extend
       targetProperty: "email"
       groupBy: 'event'
       filters: filters
-      timeframe: 'this_30_days'
+      timeframe: @controllerFor('application').get('timeframe')
     , false
     ).then (data)=>
       @controllerFor('advance').set 'advanceStats', data

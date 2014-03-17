@@ -22,6 +22,7 @@ Postman.KeenFetcher =
         options.api_key = window.Keen.client.readKey
         options.event_collection = "Sendgrid Email Events"
         options.filters = JSON.stringify(options.filters)
+        options.timeframe = JSON.stringify(options.timeframe)
 
         new Ember.$.getJSON(url, options).then (data) ->
           resolve(data)

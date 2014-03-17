@@ -1,31 +1,39 @@
-<nav class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            {{#linkTo "stats" tagName="a" class="navbar-brand text-primary"}}Postman{{/linkTo}}
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                {{#linkTo "stats" tagName="li" href="false"}}
-                    <a href="#">Stats</a>
-                {{/linkTo}}
-                {{#linkTo "emails" tagName="li" href="false"}}
-                    <a href="#">Email</a>
-                {{/linkTo}}
-                {{#linkTo "advance" tagName="li" href="false"}}
-                    <a href="#">Advance</a>
-                {{/linkTo}}
-            </ul>
-            <p class="navbar-text">Search in {{view Postman.OdometerView contentBinding=model}} email events</p>
-        </div>
+<div class="bg-primary">
+    <div class="container">
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    {{#linkTo "application" tagName="a" class="navbar-brand text-primary"}}Postman{{/linkTo}}
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        {{#linkTo "stats" tagName="li" href="false"}}
+                            <a href="#"><i class="fa fa-bar-chart-o"></i> Stats</a>
+                        {{/linkTo}}
+                        {{#linkTo "emails" tagName="li" href="false"}}
+                            <a href="#"><i class="fa fa-envelope-o"></i> Email</a>
+                        {{/linkTo}}
+                        {{#linkTo "advance" tagName="li" href="false"}}
+                            <a href="#"><i class="fa fa-search"></i> Advance</a>
+                        {{/linkTo}}
+                    </ul>
+                    <p class="navbar-text">Search in {{view Postman.OdometerView contentBinding=model}} email events</p>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            {{view Postman.DaterangepickerView startBinding="start" endBinding="end"}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </div>
-</nav>
-
+</div>
 <div class="container">
     {{outlet}}
 </div>
