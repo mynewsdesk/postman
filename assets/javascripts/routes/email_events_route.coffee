@@ -19,7 +19,10 @@ Postman.EmailEventsRoute = Ember.Route.extend
     Postman.KeenFetcher.data(
       timeframe: @controllerFor('application').get('timeframe')
       filters: filters
-    ).then (data)=>
+    ).then ((data) ->
       controller.set 'model', data.result.map (item)->
         Postman.Event.create(item)
       controller.set 'loading', false
+    ), (reason) ->
+      controller.set 'loading', false
+      Postman.get('flash').alert reason, "Keen Error"

@@ -24,8 +24,10 @@ Postman.KeenFetcher =
         options.filters = JSON.stringify(options.filters)
         options.timeframe = JSON.stringify(options.timeframe)
 
-        new Ember.$.getJSON(url, options).then (data) ->
+        new Ember.$.getJSON(url, options).then ((data) ->
           resolve(data)
+        ), (reason) ->
+          reject(reason.responseJSON.message)
     )
   series: (options) ->
     new Ember.RSVP.Promise((resolve, reject) ->
