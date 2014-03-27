@@ -8,6 +8,10 @@ Postman.Event = Ember.Object.extend
   source_id: null
   reason: null
 
+  allData: (->
+    JSON.stringify(@, null, " ")
+  ).property()
+
   customAttributes: (->
     Postman.configs.customEventAttributes.map (attribute)=>
       @get attribute

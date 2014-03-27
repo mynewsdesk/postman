@@ -1,0 +1,21 @@
+<tr class="event-row" {{bind-attr class="view.showMore:active"}}>
+  <td class="text-center text-primary">
+      <i data-toggle="tooltip" {{bind-attr class="event.fontAwesome" title="event.tooltip"}}></i>
+  </td>
+  {{#if showEmail }}
+      <td>{{ event.email }}</td>
+  {{/if}}
+  <td>{{event.category}}</td>
+  <td>{{event.ip}}</td>
+  <td>{{prettyDate event.timestamp}}</td>
+  {{#each attribute in event.filteredCustomAttributes }}
+      <td>{{attribute}}</td>
+  {{/each}}
+</tr>
+<tr>
+  <td colspan="10" {{bind-attr class="view.dataClass"}}>
+    {{#if view.showMore }}
+      <pre>{{ event.allData }}</pre>
+    {{/if}}
+  </td>
+</tr>
