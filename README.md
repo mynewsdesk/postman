@@ -6,6 +6,10 @@ See bounce/open/click and other events to easily debug and get insight.
 ## Prerequisites
 The app uses [Keen.io](http://keen.io) as a data backend. So your Sendgrid account needs to send the events to Keen.io. [More info](https://keen.io/docs/partners/#sendgrid)
 
+## Screenshots
+![Stats](/screenshots/1.png?raw=true "Stats")
+![Events](/screenshots/2.png?raw=true "Events")
+
 ## Setup/Deployment
 ### Local
 1. Copy the example dotenv file `cp .env.example .env`
