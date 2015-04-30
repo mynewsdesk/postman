@@ -4,7 +4,7 @@ class App < Sinatra::Base
     use Rack::Session::Cookie, key: 'rack.session', path: '/', secret: ENV['SESSION_SECRET']
 
     use OmniAuth::Builder do
-      provider :google_apps, domain: ENV['GOOGLE_APPS_DOMAIN'] if ENV['GOOGLE_APPS_DOMAIN']
+      provider :google_oauth2,ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"]
     end
 
     set :root, Pathname(__dir__).parent
@@ -31,7 +31,7 @@ class App < Sinatra::Base
   end
 
   get '/*' do
-    if ENV['GOOGLE_APPS_DOMAIN'] && session[:omniauth].nil?
+    if ENV['GOOGLE_CLIENT_ID'] && session[:omniauth].nil?
       erb :sign_in
     else
       erb :app

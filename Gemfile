@@ -1,10 +1,10 @@
 source 'http://rubygems.org'
-ruby '2.1.0'
+ruby '2.2.2'
 
 gem 'sinatra'
 
 gem 'dotenv'
-gem 'omniauth-google-apps'
+gem 'omniauth-google-oauth2'
 
 #assets
 gem 'sinatra-asset-pipeline', require: 'sinatra/asset_pipeline'

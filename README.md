@@ -24,9 +24,9 @@ The app uses [Keen.io](http://keen.io) as a data backend. So your Sendgrid accou
 
 ## Options
 ### Authentication
-Build in support for authentication with Google apps. Set up your domain with the `GOOGLE_APPS_DOMAIN` environment variable. Remove the variable to disable authentication.
+Build in support for authentication with Google Oauth2. Set up your client id with the `GOOGLE_CLIENT_ID` environment variable and client secret with the `GOOGLE_CLIENT_SECRET`. Remove the `GOOGLE_CLIENT_ID` variable to disable authentication.
 
-The app uses [Omniauth](https://github.com/intridea/omniauth) for authentication so it can easily be replaced/combined with other providers than the provided Google Apps solution.
+The app uses [Omniauth](https://github.com/intridea/omniauth) for authentication so it can easily be replaced/combined with other providers than the provided Google Oauth2 solution.
 
 ### Custom attributes
 Show your custom Sendgrid arguments by setting the `CUSTOM_EVENT_ATTRIBUTES` environment variable with a comma separated list of attributes.
