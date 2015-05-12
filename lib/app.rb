@@ -4,7 +4,7 @@ class App < Sinatra::Base
     use Rack::Session::Cookie, key: 'rack.session', path: '/', secret: ENV['SESSION_SECRET']
 
     use OmniAuth::Builder do
-      provider :google_oauth2,ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"]
+      provider :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"], { hd: ENV["GOOGLE_APPS_DOMAIN"] }
     end
 
     set :root, Pathname(__dir__).parent
