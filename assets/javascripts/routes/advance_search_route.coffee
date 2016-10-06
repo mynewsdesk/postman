@@ -31,6 +31,11 @@ Postman.AdvanceSearchRoute = Ember.Route.extend
       groupBy: 'event'
       filters: filters
       timeframe: @controllerFor('application').get('timeframe')
-    , false
+    , true
     ).then (data)=>
-      @controllerFor('advance').set 'advanceStats', data
+      data_reduced = data.reduce(((total, current) ->
+        total[current.event] = current.result
+        total
+      ), {})
+
+      @controllerFor('advance').set 'advanceStats', data_reduced

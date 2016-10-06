@@ -13,6 +13,16 @@
 
     <div class="row">
         <div class="col-md-7">
+            <img src="//sendgrid.com/docs/images/event_1.jpg" title="Event Flow" alt="">
+            <div>
+              <h1>Processed: {{advanceStats.processed}}</h1>
+              <h1>Dropped: {{advanceStats.dropped}}</h1>
+              <h1>Delivered: {{advanceStats.delivered}}</h1>
+              <h1>Bounce: {{advanceStats.bounce}}</h1>
+              <h1>Deferred: {{advanceStats.deferred}}</h1>
+              <h1>Open: {{advanceStats.open}}</h1>
+              <h1>Click: {{advanceStats.click}}</h1>
+            </div>
             {{view Postman.PieChart contentBinding=advanceStats}}
         </div>
     </div>
