@@ -11,20 +11,100 @@
         </div>
     </div>
 
+    <div class="row text-center">
+      <img src="https://sendgrid.kke.co.jp/docs/images/event_1.png" title="Event Flow" alt="">
+      <p>
+        <a href="https://sendgrid.com/blog/the-nine-events-of-email/" target="_blank">Click here to read more about The Nine Events of Email</a>
+      <p>
+    </div>
+
+    <div class="alert alert-info" role="alert">
+      <b>Important to notice:</b> count of all events between stages will not add up precisely unless you filter by <i>material_id, material_type</i> and select date range for full lifetime of that material
+    </div>
+
     <div class="row">
-        <div class="col-md-7">
-            <img src="//sendgrid.com/docs/images/event_1.jpg" title="Event Flow" alt="">
-            <div>
-              <h1>Processed: {{advanceStats.processed}}</h1>
-              <h1>Dropped: {{advanceStats.dropped}}</h1>
-              <h1>Delivered: {{advanceStats.delivered}}</h1>
-              <h1>Bounce: {{advanceStats.bounce}}</h1>
-              <h1>Deferred: {{advanceStats.deferred}}</h1>
-              <h1>Open: {{advanceStats.open}}</h1>
-              <h1>Click: {{advanceStats.click}}</h1>
-            </div>
-            {{view Postman.PieChart contentBinding=advanceStats}}
-        </div>
+    <div class="col-md-4">
+      <h3>Stage 1 - PROCESS</h3>
+      <table class="table table-hover">
+        <tr class="active">
+          <th>Event</th>
+          <th>Count</th>
+          <th>Percentage</th>
+        </tr>
+        <tr>
+          <td>Processed:</td>
+          <td>{{advanceStats.stage1.processed}}</td>
+          <td>{{advanceStats.stage1.processedPercentage}}%</td>
+        </tr>
+        <tr>
+          <td><a href="https://sendgrid.com/docs/Glossary/drops.html" title="Read more about why email are dropped." target="_blank">Dropped</a>:</td>
+          <td>{{advanceStats.stage1.dropped}}</td>
+          <td>{{advanceStats.stage1.droppedPercentage}}%</td>
+        </tr>
+        <tr>
+          <td><b>Total:</b></td>
+          <td><b>{{advanceStats.stage1.total}}</b></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="col-md-4">
+      <h3>Stage 2 - DELIVER</h3>
+      <table class="table table-hover">
+        <tr class="active">
+          <th>Event</th>
+          <th>Count</th>
+          <th>Percentage</th>
+        </tr>
+        <tr>
+          <td>Delivered:</td>
+          <td>{{advanceStats.stage2.delivered}}</td>
+          <td>{{advanceStats.stage2.deliveredPercentage}}%</td>
+        </tr>
+        <tr>
+          <td>Bounce:</td>
+          <td>{{advanceStats.stage2.bounce}}</td>
+          <td>{{advanceStats.stage2.bouncePercentage}}%</td>
+        </tr>
+        <tr>
+          <td>Defererd:</td>
+          <td>{{advanceStats.stage2.deferred}}</td>
+          <td>{{advanceStats.stage2.deferredPercentage}}%</td>
+        </tr>
+        <tr>
+          <td><b>Total:</b></td>
+          <td><b>{{advanceStats.stage2.total}}</b></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="col-md-4">
+      <h3>Stage 3 - READ</h3>
+      <table class="table table-hover">
+        <tr class="active">
+          <th>Event</th>
+          <th>Count</th>
+          <th>Percentage</th>
+        </tr>
+        <tr>
+          <td>Open:</td>
+          <td>{{advanceStats.stage3.open}}</td>
+          <td>{{advanceStats.stage3.openPercentage}}%</td>
+        </tr>
+        <tr>
+          <td>Click:</td>
+          <td>{{advanceStats.stage3.click}}</td>
+          <td>{{advanceStats.stage3.clickPercentage}}%</td>
+        </tr>
+        <tr>
+          <td><b>Total:</b></td>
+          <td><b>{{advanceStats.stage2.total}}</b></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
     </div>
 
     <div class="row">
