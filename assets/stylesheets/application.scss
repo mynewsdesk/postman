@@ -7,6 +7,16 @@
   margin-top: 20px;
 }
 
+.blink_me {
+  animation: blinker 1s linear infinite;
+  color: red;
+  font-weigth: bold;
+  border: 2px dashed yellow;
+}
+
+@keyframes blinker {
+  50% { opacity: 0; }
+}
 
 .table {
   & > tbody > tr > th {
